@@ -38,10 +38,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/03/2014 20:33:56</publishTime>
     </File>
     <File Include="bin/PhoneBookApi.dll">
-      <publishTime>11/20/2018 22:50:03</publishTime>
+      <publishTime>11/21/2018 01:45:41</publishTime>
     </File>
     <File Include="bin/PhoneBookApi.pdb">
-      <publishTime>11/20/2018 22:50:03</publishTime>
+      <publishTime>11/21/2018 01:45:41</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/27/2016 14:50:24</publishTime>

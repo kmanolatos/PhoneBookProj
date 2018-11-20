@@ -41,7 +41,7 @@ namespace PhoneBookApi.Controllers
                 {
                     sWhere += "td.Phone_Number ";
                 }
-                sWhere += "like '" + text + "%'";
+                sWhere += "like N'" + text + "%'";
             }
             List<SearchedModel> model = new List<SearchedModel>();
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))

@@ -64,7 +64,7 @@ namespace PhoneBookApi.Controllers
                 {
                     where += "c.City_Descr ";
                 }
-                where += "like '" + text + "%'";
+                where += "like N'" + text + "%'";
             }
             List<SearchedModel> model = new List<SearchedModel>();
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))

@@ -113,3 +113,4 @@ C:\Users\kmanolatos.HITSA\Downloads\New folder (2)\PhoneBookApi\PhoneBookApi\obj
 C:\Users\kmanolatos.HITSA\Downloads\New folder (2)\PhoneBookApi\PhoneBookApi\obj\Debug\PhoneBookApi.csproj.CopyComplete
 C:\Users\kmanolatos.HITSA\Downloads\New folder (2)\PhoneBookApi\PhoneBookApi\obj\Debug\PhoneBookApi.dll
 C:\Users\kmanolatos.HITSA\Downloads\New folder (2)\PhoneBookApi\PhoneBookApi\obj\Debug\PhoneBookApi.pdb
+C:\Users\Kostas\documents\visual studio 2017\Projects\PhoneBookApi\PhoneBookApi\obj\Debug\PhoneBookApi.csprojResolveAssemblyReference.cache
