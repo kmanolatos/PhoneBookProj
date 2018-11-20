@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Areas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Areas.aspx.cs" Inherits="Areas" EnableEventValidation="false" %>
+﻿<%@ Page Title="Areas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Areas.aspx.cs" Inherits="Areas"  validateRequest="false" enableEventValidation="false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

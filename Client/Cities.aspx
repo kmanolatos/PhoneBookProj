@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Cities" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Cities.aspx.cs" Inherits="Cities" EnableEventValidation="false" %>
+﻿<%@ Page Title="Cities" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Cities.aspx.cs" Inherits="Cities"  validateRequest="false" enableEventValidation="false" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

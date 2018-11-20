@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Telephone Kinds" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Telephone_Kinds.aspx.cs" Inherits="Telephone_Kinds" EnableEventValidation="false"%>
+﻿<%@ Page Title="Telephone Kinds" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Telephone_Kinds.aspx.cs" Inherits="Telephone_Kinds"  validateRequest="false" enableEventValidation="false"%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
