@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Personal Data" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Personal.aspx.cs" Inherits="Personal" EnableEventValidation="false" %>
+﻿<%@ Page Title="Personal Data" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Personal.aspx.cs" Inherits="Personal"   validateRequest="false" enableEventValidation="false" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <style>

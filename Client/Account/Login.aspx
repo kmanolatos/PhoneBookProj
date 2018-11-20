@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Account_Login"%>
+﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Account_Login" validateRequest="false" enableEventValidation="false"%>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <style>

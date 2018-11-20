@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Account_Register" EnableEventValidation="false" %>
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Empty.master" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="Account_Register"  validateRequest="false" enableEventValidation="false"%>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <style>
