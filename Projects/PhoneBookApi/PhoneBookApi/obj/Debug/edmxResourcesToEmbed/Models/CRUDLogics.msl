@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PhoneBookDBModelStoreContainer" CdmEntityContainer="PhoneBookDBEntities">
+    <EntitySetMapping Name="areas">
+      <EntityTypeMapping TypeName="PhoneBookDBModel.area">
+        <MappingFragment StoreEntitySet="areas">
+          <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+          <ScalarProperty Name="Area_Descr" ColumnName="Area_Descr" />
+          <ScalarProperty Name="Owner_City_ID" ColumnName="Owner_City_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="PhoneBookDBModel.city">
+        <MappingFragment StoreEntitySet="cities">
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+          <ScalarProperty Name="City_Descr" ColumnName="City_Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telephone_kind">
+      <EntityTypeMapping TypeName="PhoneBookDBModel.telephone_kind">
+        <MappingFragment StoreEntitySet="telephone_kind">
+          <ScalarProperty Name="Kind_ID" ColumnName="Kind_ID" />
+          <ScalarProperty Name="Kind_Descr" ColumnName="Kind_Descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telephones_detail">
+      <EntityTypeMapping TypeName="PhoneBookDBModel.telephones_detail">
+        <MappingFragment StoreEntitySet="telephones_detail">
+          <ScalarProperty Name="Entry_ID" ColumnName="Entry_ID" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+          <ScalarProperty Name="Kind_ID" ColumnName="Kind_ID" />
+          <ScalarProperty Name="Owner_ID" ColumnName="Owner_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="telephones_master">
+      <EntityTypeMapping TypeName="PhoneBookDBModel.telephones_master">
+        <MappingFragment StoreEntitySet="telephones_master">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+          <ScalarProperty Name="Area_ID" ColumnName="Area_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PhoneBookDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="areas">
+    <Key>
+      <PropertyRef Name="Area_ID" />
+    </Key>
+    <Property Name="Area_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area_Descr" Type="varchar" MaxLength="50" />
+    <Property Name="Owner_City_ID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="cities">
+    <Key>
+      <PropertyRef Name="City_ID" />
+    </Key>
+    <Property Name="City_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City_Descr" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="telephone_kind">
+    <Key>
+      <PropertyRef Name="Kind_ID" />
+    </Key>
+    <Property Name="Kind_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kind_Descr" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="telephones_detail">
+    <Key>
+      <PropertyRef Name="Entry_ID" />
+    </Key>
+    <Property Name="Entry_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone_Number" Type="varchar" MaxLength="15" />
+    <Property Name="Kind_ID" Type="bigint" />
+    <Property Name="Owner_ID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="telephones_master">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="70" />
+    <Property Name="Lastname" Type="varchar" MaxLength="70" />
+    <Property Name="Mail" Type="varchar" MaxLength="70" />
+    <Property Name="City_ID" Type="bigint" />
+    <Property Name="Area_ID" Type="bigint" />
+  </EntityType>
+  <Association Name="FK__areas__Owner_Cit__25869641">
+    <End Role="cities" Type="Self.cities" Multiplicity="0..1" />
+    <End Role="areas" Type="Self.areas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities">
+        <PropertyRef Name="City_ID" />
+      </Principal>
+      <Dependent Role="areas">
+        <PropertyRef Name="Owner_City_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__telephone__Area___2B3F6F97">
+    <End Role="areas" Type="Self.areas" Multiplicity="0..1" />
+    <End Role="telephones_master" Type="Self.telephones_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="areas">
+        <PropertyRef Name="Area_ID" />
+      </Principal>
+      <Dependent Role="telephones_master">
+        <PropertyRef Name="Area_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__telephone__City___2A4B4B5E">
+    <End Role="cities" Type="Self.cities" Multiplicity="0..1" />
+    <End Role="telephones_master" Type="Self.telephones_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities">
+        <PropertyRef Name="City_ID" />
+      </Principal>
+      <Dependent Role="telephones_master">
+        <PropertyRef Name="City_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__telephone__Kind___2E1BDC42">
+    <End Role="telephone_kind" Type="Self.telephone_kind" Multiplicity="0..1" />
+    <End Role="telephones_detail" Type="Self.telephones_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="telephone_kind">
+        <PropertyRef Name="Kind_ID" />
+      </Principal>
+      <Dependent Role="telephones_detail">
+        <PropertyRef Name="Kind_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__telephone__Owner__2F10007B">
+    <End Role="telephones_master" Type="Self.telephones_master" Multiplicity="0..1" />
+    <End Role="telephones_detail" Type="Self.telephones_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="telephones_master">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="telephones_detail">
+        <PropertyRef Name="Owner_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PhoneBookDBModelStoreContainer">
+    <EntitySet Name="areas" EntityType="Self.areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cities" EntityType="Self.cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telephone_kind" EntityType="Self.telephone_kind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telephones_detail" EntityType="Self.telephones_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="telephones_master" EntityType="Self.telephones_master" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__areas__Owner_Cit__25869641" Association="Self.FK__areas__Owner_Cit__25869641">
+      <End Role="cities" EntitySet="cities" />
+      <End Role="areas" EntitySet="areas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__telephone__Area___2B3F6F97" Association="Self.FK__telephone__Area___2B3F6F97">
+      <End Role="areas" EntitySet="areas" />
+      <End Role="telephones_master" EntitySet="telephones_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK__telephone__City___2A4B4B5E" Association="Self.FK__telephone__City___2A4B4B5E">
+      <End Role="cities" EntitySet="cities" />
+      <End Role="telephones_master" EntitySet="telephones_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK__telephone__Kind___2E1BDC42" Association="Self.FK__telephone__Kind___2E1BDC42">
+      <End Role="telephone_kind" EntitySet="telephone_kind" />
+      <End Role="telephones_detail" EntitySet="telephones_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__telephone__Owner__2F10007B" Association="Self.FK__telephone__Owner__2F10007B">
+      <End Role="telephones_master" EntitySet="telephones_master" />
+      <End Role="telephones_detail" EntitySet="telephones_detail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
