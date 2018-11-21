@@ -66,6 +66,7 @@ namespace PhoneBookApi.Models
         public long Entry_ID { get; set; }
 
         [Phone]
+        [MinLength(10)]
         [MaxLength(15)]
         [Dapper.Required]
         public string Phone_Number { get; set; }
@@ -79,14 +80,14 @@ namespace PhoneBookApi.Models
     {
         public string password { get; set; }
         public string Phone_Number { get; set; }
-        public long Kind_ID { get; set; }
+        public long? Kind_ID { get; set; }
         public long Owner_ID { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Mail { get; set; }
-        public long Area_ID { get; set; }
+        public long? Area_ID { get; set; }
         public long Entry_ID { get; set; }
-        public long City_ID { get; set; }
+        public long? City_ID { get; set; }
         public long ID { get; set; }
     }
 }

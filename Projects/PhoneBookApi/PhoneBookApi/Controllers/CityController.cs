@@ -66,7 +66,12 @@ namespace PhoneBookApi.Controllers
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))
             {
-                string sql = @"update Area set Owner_City_ID = null where Owner_City_ID = " + model.City_ID +
+                string sql = @"update Telephones_Master
+                                set Telephones_Master.Area_ID = null from
+                                Area as a
+                                inner join Telephones_Master as tm on tm.Area_ID = a.Area_ID
+                             where a.Owner_City_ID = " + model.City_ID +
+                             "delete from Area where Owner_City_ID = " + model.City_ID +
                             "delete from City where City_ID = " + model.City_ID;
                 db.Query(sql);
             }
