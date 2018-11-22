@@ -89,6 +89,12 @@ namespace PhoneBookApi.Controllers
             {
                 using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))
                 {
+                    string sql = @"select count(*) as rows from Telephone_Kind as u where Kind_Descr = N'" + model.Kind_Descr + "'";
+                    var result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
+                    int row;
+                    Int32.TryParse(result["rows"].ToString(), out row);
+                    if (row == 1)
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Telephone Kind already exists!");
                     db.Update(model);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK);
@@ -109,6 +115,12 @@ namespace PhoneBookApi.Controllers
             {
                 using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))
                 {
+                    string sql = @"select count(*) as rows from Telephone_Kind as u where Kind_Descr = N'" + model.Kind_Descr + "'";
+                    var result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
+                    int row;
+                    Int32.TryParse(result["rows"].ToString(), out row);
+                    if (row == 1)
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Telephone Kind already exists!");
                     db.Insert(model);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK);

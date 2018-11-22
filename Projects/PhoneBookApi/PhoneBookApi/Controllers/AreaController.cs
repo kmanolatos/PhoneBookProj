@@ -100,6 +100,12 @@ namespace PhoneBookApi.Controllers
             {
                 using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))
                 {
+                    string sql = @"select count(*) as rows from Area as u where Area_Descr = N'" + model.Area_Descr + "'";
+                    var result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
+                    int row;
+                    Int32.TryParse(result["rows"].ToString(), out row);
+                    if (row == 1)
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Area already exists!");
                     db.Update(model);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK);
@@ -120,6 +126,12 @@ namespace PhoneBookApi.Controllers
 
                 using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))
                 {
+                    string sql = @"select count(*) as rows from Area as u where Area_Descr = N'" + model.Area_Descr + "'";
+                    var result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
+                    int row;
+                    Int32.TryParse(result["rows"].ToString(), out row);
+                    if (row == 1)
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Area already exists!");
                     db.Insert(model);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK);

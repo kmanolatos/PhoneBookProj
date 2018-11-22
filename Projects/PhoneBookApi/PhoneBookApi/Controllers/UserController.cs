@@ -26,7 +26,7 @@ namespace PhoneBookApi.Controllers
                 string sql = "select username as username, id from Users where username = '" + model.username + "' and password = '" + model.password + "'";
                 var result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
                 if (result == null)
-                    user = "";
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Username or Password is wrong!");
                 else
                 {
                     user = result["username"].ToString() + ", " + result["id"].ToString();
@@ -73,13 +73,13 @@ namespace PhoneBookApi.Controllers
                             int row;
                             Int32.TryParse(result["rows"].ToString(), out row);
                             if (row == 1)
-                                return Request.CreateResponse(HttpStatusCode.OK, 1);
+                                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Username already exists!");
                             sql = @"select count(*) as rows from Users as u
                             inner join Telephones_Master as t on t.UserID = u.Id where t.Mail = '" + model.telephoneMasterModel.Mail + "'";
                             result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
                             Int32.TryParse(result["rows"].ToString(), out row);
                             if (row == 1)
-                                return Request.CreateResponse(HttpStatusCode.OK, 2);
+                                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Email already exists!");
                             db.Insert(model.loginModel);
                             sql = "select MAX(Id) as maxId from Users";
                             result = (IDictionary<string, object>)db.Query(sql).FirstOrDefault();
@@ -132,7 +132,7 @@ namespace PhoneBookApi.Controllers
                             int row;
                             Int32.TryParse(result["rows"].ToString(), out row);
                             if (row == 1)
-                                return Request.CreateResponse(HttpStatusCode.OK, 1);
+                                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Email already exists!");
                             db.Update(model.loginModel);
                             db.Update(model.telephoneMasterModel);
                             db.Update(model.telephoneDetailModel);
